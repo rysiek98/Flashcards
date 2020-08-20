@@ -9,6 +9,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/flashcards")
+@CrossOrigin("*")
 public class FlashcardsController {
 
     private final FlashcardsService flashcardsService;
