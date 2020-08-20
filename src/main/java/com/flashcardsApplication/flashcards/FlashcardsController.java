@@ -24,5 +24,19 @@ public class FlashcardsController {
         return flashcardsService.add(flashcards);
     }
 
+    @GetMapping(path = "{id}")
+    private Flashcards findById(@PathVariable("id") long id){
+        return flashcardsService.findById(id);
+    }
+
+    @DeleteMapping(path = "{id}")
+    private String delete(@PathVariable("id") long id) {
+        return flashcardsService.deleteById(id);
+    }
+
+    @PutMapping()
+    private Flashcards updateCalendar(@RequestBody Flashcards flashcards) {
+        return flashcardsService.updateById(flashcards);
+    }
 
 }
