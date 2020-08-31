@@ -1,0 +1,34 @@
+.navbar {
+  background-color: azure;
+  color: darkblue;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px;
+  width: 80%;
+}
+
+.navbarElement {
+  margin: 20px;
+}
+
+.links {
+  margin: 10px;
+  text-decoration: none;
+  color: azure;
+  background-color: darkblue;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 15px;
+  font-family: "Trocchi";
+  padding: 5px;
+  transition-duration: 0.4s;
+}
+
+.links:hover {
+  background-color: azure;
+  color: darkblue;
+}

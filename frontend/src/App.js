@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from "react";
+import "./App.css";
+import Section from "./components/section";
 import axios from "axios";
-
-const Flashcards = () => {
-  const fetchFlashcards = () => {
-    axios.get("http://localhost:9090/api/flashcards").then((res) => {
-      console.log(res);
-    });
-  };
-  useEffect(() => {
-    fetchFlashcards();
-  }, []);
-
-  return <h1>Hello</h1>;
-};
+import Footer from "./components/footer";
 
 function App() {
   return (
-    <div className="App">
-      <Flashcards />
+    <div className="container">
+      <Section />
+      <Footer />
     </div>
   );
 }
