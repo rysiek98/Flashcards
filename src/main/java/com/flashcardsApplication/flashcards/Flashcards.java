@@ -19,6 +19,7 @@ public class Flashcards {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
+    private String name;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Card> cards;

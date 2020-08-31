@@ -39,6 +39,7 @@ public class FlashcardsService {
     @Transactional
     public Flashcards updateById(Flashcards flashcards) {
         Flashcards updateFlashcards = findById(flashcards.getId());
+        updateFlashcards.setName(flashcards.getName());
         updateCard(updateFlashcards.getCards(),flashcards.getCards());
         return flashcardsRepository.save(updateFlashcards);
     }
