@@ -15,7 +15,7 @@ class NavBar extends Component {
         <NavLink to="/play" className="links">
           Play
         </NavLink>
-        <NavLink to="home" className="links">
+        <NavLink to="/addFlashcard" className="links">
           Add new Flashcards
         </NavLink>
       </nav>

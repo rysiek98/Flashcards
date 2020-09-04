@@ -11,11 +11,13 @@ class Play extends Component {
       flashcard: null,
       card: null,
       cards: [],
+      nativeLanguage: true,
     };
 
     this.handleSelected = this.handleSelected.bind(this);
     this.handleNextWord = this.handleNextWord.bind(this);
     this.handleBackWord = this.handleBackWord.bind(this);
+    this.handleChangeLanguage = this.handleChangeLanguage.bind(this);
   }
 
   handleSelected(flashcard) {
@@ -48,11 +50,43 @@ class Play extends Component {
     }
   }
 
+  handleChangeLanguage() {
+    if (this.state.nativeLanguage) {
+      this.setState({ nativeLanguage: false });
+    } else {
+      this.setState({ nativeLanguage: true });
+    }
+  }
+
   componentDidMount() {
     axios.get("http://localhost:9090/api/flashcards").then((res) => {
       const flashcards = res.data;
       this.setState({ flashcards });
     });
+  }
+
+  language() {
+    if (this.state.nativeLanguage) {
+      return "Native Language";
+    } else {
+      return "Foreign Language";
+    }
+  }
+
+  frontCard() {
+    if (this.state.nativeLanguage) {
+      return this.state.card.wordInNative;
+    } else {
+      return this.state.card.wordInForeign;
+    }
+  }
+
+  backCard() {
+    if (this.state.nativeLanguage) {
+      return this.state.card.wordInForeign;
+    } else {
+      return this.state.card.wordInNative;
+    }
   }
 
   render() {
@@ -93,12 +127,8 @@ class Play extends Component {
           </button>
           <div className="flip-card">
             <div className="flip-card-inner">
-              <div className="flip-card-front">
-                {this.state.card.wordInNative}
-              </div>
-              <div className="flip-card-back">
-                {this.state.card.wordInForeign}
-              </div>
+              <div className="flip-card-front">{this.frontCard()}</div>
+              <div className="flip-card-back">{this.backCard()}</div>
             </div>
           </div>
           <button onClick={this.handleNextWord.bind(this, this.state.card)}>
@@ -110,6 +140,9 @@ class Play extends Component {
             onClick={this.handleSelected.bind(this, this.state.flashcard)}
           >
             Return to flashcards list
+          </button>
+          <button onClick={this.handleChangeLanguage.bind()}>
+            {this.language()}
           </button>
         </div>
       </div>

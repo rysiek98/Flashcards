@@ -5,6 +5,7 @@ import Home from "./home";
 import FlashcardsList from "./flashcardsList";
 import Navigation from "./navigation";
 import Play from "./play";
+import AddFlashcards from "./addFlashcard";
 
 class Section extends Component {
   render() {
@@ -15,6 +16,7 @@ class Section extends Component {
           <Route path="/home" component={Home} exact />
           <Route path="/flashcardsList" component={FlashcardsList} />
           <Route path="/play" component={Play} />
+          <Route path="/addFlashcard" component={AddFlashcards} />
         </Switch>
       </BrowserRouter>
     );
