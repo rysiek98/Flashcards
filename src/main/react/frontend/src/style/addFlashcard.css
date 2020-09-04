@@ -1,0 +1,67 @@
+.addFlashcard {
+  background-color: azure;
+  color: darkblue;
+  margin: auto;
+  margin-top: 25px;
+  width: 80%;
+  height: 600px;
+  font-size: 20px;
+  font-family: "Enriqueta";
+  text-align: center;
+}
+
+.addFlashcard h1 {
+  color: darkblue;
+}
+
+.addCards {
+  margin: auto;
+  margin-top: 15px;
+  width: 450px;
+  height: 300px;
+  font-family: "Enriqueta";
+  padding-bottom: 15px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: azure;
+}
+
+.addFlashcard label {
+  font-style: italic;
+  font-size: 25px;
+}
+
+.addFlashcard input {
+  margin: 5px;
+  background-color: whitesmoke;
+  border: none;
+  font-size: 20px;
+  color: orangered;
+  outline: none;
+}
+
+.addCards button,
+.addFlashcard button {
+  margin-top: 35px;
+  width: fit-content;
+  font-size: 20px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-radius: 30px;
+  background-color: whitesmoke;
+  color: darkblue;
+  border: 0px;
+  transition-duration: 0.6s;
+  outline: none;
+}
+
+.addCards button:hover,
+.addFlashcard button:hover {
+  margin-top: 35px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: darkblue;
+  color: whitesmoke;
+  border: 0px;
+}

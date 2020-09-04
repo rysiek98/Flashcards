@@ -1,0 +1,140 @@
+.listFlashcards {
+  background-color: azure;
+  color: darkblue;
+  margin: auto;
+  margin-top: 25px;
+  width: 80%;
+  height: 600px;
+  font-size: 20px;
+  font-family: "Enriqueta";
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.listFlashcards ul {
+  list-style-type: none;
+  margin: auto;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#list {
+  background-color: azure;
+  color: darkblue;
+  margin: 3px;
+  height: 80%;
+  width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.gameBoard {
+  background-color: azure;
+  color: darkblue;
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Enriqueta";
+}
+.gameBoard button,
+.options button {
+  border-radius: 30px;
+  display: inline-block;
+  width: fit-content;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: content-box;
+  transition-duration: 0.6s;
+  border: none;
+  font-family: "Enriqueta";
+  outline: none;
+  margin: 60px;
+}
+
+.gameBoard button:hover,
+.options button:hover {
+  border-radius: 50px;
+  background-color: orange;
+  font-size: 25px;
+  padding: 15px;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  font-family: "Enriqueta";
+}
+.flip-card {
+  font-size: 45px;
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  font-family: "Enriqueta";
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-family: "Enriqueta";
+  border-radius: 40px;
+}
+
+.flip-card-front {
+  background-color: darkblue;
+  color: azure;
+}
+
+.flip-card-back {
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.play {
+  background-color: azure;
+  color: darkblue;
+  width: 80%;
+  height: 600px;
+  margin: auto;
+}
+
+.options {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Enriqueta";
+  box-sizing: border-box;
+  padding-bottom: 35px;
+}
