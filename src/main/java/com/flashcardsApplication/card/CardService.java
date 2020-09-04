@@ -9,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CardService {
 
-    public static void removeRedundantMeetings(List<Card> cards, List<Card> updateCards){
+    public static void removeRedundantCards(List<Card> cards, List<Card> updateCards){
 
         Collections.reverse(cards);
         cards.removeIf(meeting -> cards.size() > updateCards.size());
@@ -18,7 +18,7 @@ public class CardService {
 
     public static void updateCard(List<Card> cards,List<Card> updateCards) {
 
-        removeRedundantMeetings(cards, updateCards);
+        removeRedundantCards(cards, updateCards);
 
         updateCards.forEach(card -> {
             if (updateCards.indexOf(card) < cards.size()) {
@@ -28,5 +28,11 @@ public class CardService {
                 cards.add(card);
             }
         });
+    }
+
+    public static void deleteCard(List<Card> cards, long id){
+
+        cards.removeIf(card -> card.getId() == id);
+
     }
 }

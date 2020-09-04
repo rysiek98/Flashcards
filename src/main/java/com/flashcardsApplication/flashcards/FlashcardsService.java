@@ -1,6 +1,6 @@
 package com.flashcardsApplication.flashcards;
 
-import com.flashcardsApplication.card.CardService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import java.util.Comparator;
 import java.util.List;
 import static com.flashcardsApplication.card.CardService.updateCard;
+import static com.flashcardsApplication.card.CardService.deleteCard;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +20,7 @@ public class FlashcardsService {
     List<Flashcards> findAllFlashcards(){
         List<Flashcards> flashcards = flashcardsRepository.findAll();
         flashcards.sort(Comparator.comparing(f->f.getId()));
+        flashcards.forEach(flashcard -> flashcard.getCards().sort(Comparator.comparing(f->f.getId())));
         return flashcards;
     }
 
@@ -41,5 +43,12 @@ public class FlashcardsService {
         Flashcards updateFlashcards = findById(flashcards.getId());
         updateCard(updateFlashcards.getCards(),flashcards.getCards());
         return flashcardsRepository.save(updateFlashcards);
+    }
+
+    public String deleteCardById(long flashcardID, long id) {
+        Flashcards flashcards = flashcardsRepository.findById(flashcardID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        deleteCard(flashcards.getCards(), id);
+        flashcardsRepository.save(flashcards);
+        return "DELETED";
     }
 }
