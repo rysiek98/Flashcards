@@ -1,6 +1,7 @@
 package com.flashcardsApplication.flashcards;
 
 
+import com.flashcardsApplication.card.Card;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,8 @@ public class FlashcardsService {
 
     List<Flashcards> findAllFlashcards(){
         List<Flashcards> flashcards = flashcardsRepository.findAll();
-        flashcards.sort(Comparator.comparing(f->f.getId()));
-        flashcards.forEach(flashcard -> flashcard.getCards().sort(Comparator.comparing(f->f.getId())));
+        flashcards.sort(Comparator.comparing(Flashcards::getId));
+        flashcards.forEach(flashcard -> flashcard.getCards().sort(Comparator.comparing(Card::getId)));
         return flashcards;
     }
 
