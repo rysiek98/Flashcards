@@ -20,11 +20,20 @@ class FlashcardsList extends Component {
     this.handleSelected = this.handleSelected.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleDeleteFlashcard = this.handleDeleteFlashcard.bind(this);
     this.handleChangeOption = this.handleChangeOption.bind(this);
     this.handleChangeNative = this.handleChangeNative.bind(this);
     this.handleChangeForeign = this.handleChangeForeign.bind(this);
     this.handleEditCard = this.handleEditCard.bind(this);
     this.handleAddCard = this.handleAddCard.bind(this);
+  }
+
+  handleDeleteFlashcard(id) {
+    const URL = "http://localhost:9090/api/flashcards/" + id;
+    axios.delete(URL).then((res) => {
+      console.log(res);
+    });
+    this.handleChange(this.state.flashcard);
   }
 
   resetState() {
@@ -122,17 +131,19 @@ class FlashcardsList extends Component {
       this.setState({ flashcard });
       this.setState({ cards: flashcard.cards });
     } else {
-      this.setState({ selected: false });
       this.resetState();
-      this.setState({ cards: null });
-      this.setState({ selectedCardID: 0 });
-      this.setState({ option: "show" });
+      this.setState({ selected: false });
+      this.setState({ flashcard: null });
+      this.setState({ cards: [] });
     }
   }
 
   handleDelete(id) {
-    console.log(id);
-    axios.delete("http://localhost:9090/api/flashcards/${id}").then((res) => {
+    const flashcardID = this.state.flashcard.id;
+    const URL =
+      "http://localhost:9090/api/flashcards/" + flashcardID + "/card/" + id;
+    console.log(URL);
+    axios.delete(URL).then((res) => {
       console.log(res);
     });
 
@@ -230,17 +241,25 @@ class FlashcardsList extends Component {
         })}
         <div className="optionsButtons">
           <button onClick={this.handleChangeOption.bind(this, "add")}>
-            Add
+            Add Card
           </button>
           <button onClick={this.handleChangeOption.bind(this, "edit")}>
-            Edit
+            Edit Card
           </button>
           <button
             onClick={this.handleDelete.bind(this, this.state.selectedCardID)}
           >
-            Delete
+            Delete Card
           </button>
           <button onClick={this.handleChange.bind(this, null)}>Go back</button>
+          <button
+            onClick={this.handleDeleteFlashcard.bind(
+              this,
+              this.state.flashcard.id
+            )}
+          >
+            Delete Flashcard{" "}
+          </button>
         </div>
       </div>
     );

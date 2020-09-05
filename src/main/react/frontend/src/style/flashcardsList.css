@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+.flashcards h2 {
+  padding-top: 10px;
+}
+
 .flashcards ul {
   padding-top: 10px;
   list-style-type: none;

@@ -35,6 +35,11 @@ public class FlashcardsController {
         return flashcardsService.deleteById(id);
     }
 
+    @DeleteMapping(path = "{flashcardID}/card/{id}")
+    private String deleteCard(@PathVariable("flashcardID") long flashcardID ,@PathVariable("id") long id) {
+        return flashcardsService.deleteCardById(flashcardID, id);
+    }
+
     @PutMapping()
     private Flashcards updateCalendar(@RequestBody Flashcards flashcards) {
         return flashcardsService.updateById(flashcards);
