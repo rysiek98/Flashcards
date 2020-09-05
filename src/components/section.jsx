@@ -13,7 +13,8 @@ class Section extends Component {
       <BrowserRouter>
         <Navigation />
         <Switch>
-          <Route path="/home" component={Home} exact />
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
           <Route path="/flashcardsList" component={FlashcardsList} />
           <Route path="/play" component={Play} />
           <Route path="/addFlashcard" component={AddFlashcards} />
