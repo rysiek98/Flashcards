@@ -15,6 +15,7 @@ class FlashcardsList extends Component {
       option: "show",
       wordInNative: "",
       wordInForeign: "",
+      name: "",
     };
 
     this.handleSelected = this.handleSelected.bind(this);
@@ -24,8 +25,28 @@ class FlashcardsList extends Component {
     this.handleChangeOption = this.handleChangeOption.bind(this);
     this.handleChangeNative = this.handleChangeNative.bind(this);
     this.handleChangeForeign = this.handleChangeForeign.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
     this.handleEditCard = this.handleEditCard.bind(this);
     this.handleAddCard = this.handleAddCard.bind(this);
+    this.handleChangeFlashcardName = this.handleChangeFlashcardName.bind(this);
+  }
+
+  handleChangeFlashcardName() {
+    let FlashcardCopy = this.state.flashcard;
+    FlashcardCopy.name = this.state.name;
+    this.setState({ flashcard: FlashcardCopy });
+    axios
+      .put("http://localhost:9090/api/flashcards", {
+        id: this.state.flashcard.id,
+        name: this.state.flashcard.name,
+        cards: this.state.cards,
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
+    this.setState({ name: "" });
+    this.handleChangeOption("show");
   }
 
   handleDeleteFlashcard(id) {
@@ -33,7 +54,10 @@ class FlashcardsList extends Component {
     axios.delete(URL).then((res) => {
       console.log(res);
     });
-    this.handleChange(this.state.flashcard);
+    this.setState({ selected: false });
+    this.resetState();
+
+    window.location.reload(false);
   }
 
   resetState() {
@@ -100,10 +124,18 @@ class FlashcardsList extends Component {
     });
   }
 
+  handleChangeName(event) {
+    this.setState({
+      name: event.target.value,
+    });
+  }
+
   handleChangeOption(option) {
     switch (option) {
       case "add":
         this.setState({ option: "add" });
+        this.setState({ wordInNative: "" });
+        this.setState({ wordInForeign: "" });
         break;
       case "edit":
         if (this.state.selectedCardID !== 0) {
@@ -112,6 +144,12 @@ class FlashcardsList extends Component {
           this.setState({ option: "show" });
         }
         break;
+
+      case "editName":
+        this.setState({ option: "editName" });
+        this.setState({ name: this.state.flashcard.name });
+        break;
+
       case "show":
         this.setState({ option: "show" });
         this.setState({ selectedCardID: 0 });
@@ -151,6 +189,8 @@ class FlashcardsList extends Component {
       this.setState({
         cards: this.state.cards.filter((card) => card.id !== id),
       });
+      this.setState({ selectedCard: null });
+      this.setState({ selectedCardID: 0 });
     }
   }
 
@@ -192,6 +232,9 @@ class FlashcardsList extends Component {
 
         case "edit":
           return this.editCard();
+
+        case "editName":
+          return this.editName();
 
         default:
           return this.showFlashcard();
@@ -251,14 +294,26 @@ class FlashcardsList extends Component {
           >
             Delete Card
           </button>
-          <button onClick={this.handleChange.bind(this, null)}>Go back</button>
           <button
+            style={{ backgroundColor: "#b70100" }}
             onClick={this.handleDeleteFlashcard.bind(
               this,
               this.state.flashcard.id
             )}
           >
             Delete Flashcard{" "}
+          </button>
+          <button
+            style={{ backgroundColor: "#b70100" }}
+            onClick={this.handleChangeOption.bind(this, "editName")}
+          >
+            Change Flashcard Name{" "}
+          </button>
+          <button
+            style={{ backgroundColor: "#00b730" }}
+            onClick={this.handleChange.bind(this, null)}
+          >
+            Go back
           </button>
         </div>
       </div>
@@ -268,7 +323,7 @@ class FlashcardsList extends Component {
   editCard() {
     return (
       <div className="showFlashcards">
-        <div className="addCards">
+        <div className="editCard">
           <h3>Edit Card</h3>
           <form>
             <label>
@@ -303,7 +358,7 @@ class FlashcardsList extends Component {
   addCard() {
     return (
       <div className="showFlashcards">
-        <div className="addCards">
+        <div className="addCard">
           <h3>Add Card</h3>
           <form>
             <label>
@@ -326,6 +381,35 @@ class FlashcardsList extends Component {
             </label>
           </form>
           <button onClick={this.handleAddCard.bind(this)}> Add </button>
+          <button onClick={this.handleChangeOption.bind(this, "show")}>
+            {" "}
+            Go back{" "}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  editName() {
+    return (
+      <div className="showFlashcards">
+        <div className="editCard">
+          <h3>Change Flashcard name</h3>
+          <form>
+            <label>
+              flashcard name:
+              <input
+                placeholder="Flashcard name"
+                type="text"
+                value={this.state.name}
+                onChange={this.handleChangeName}
+              />
+            </label>
+          </form>
+          <button onClick={this.handleChangeFlashcardName.bind(this)}>
+            {" "}
+            Edit{" "}
+          </button>
           <button onClick={this.handleChangeOption.bind(this, "show")}>
             {" "}
             Go back{" "}
