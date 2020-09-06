@@ -7,7 +7,7 @@ Project starts: 20.08.2020.
 
 ## Some screenshots: <h2> 
 
-## Home page: <h3> tag
+## Home page: <h3>
 ![Home](/App_img/home.png)
 
 
