@@ -1,4 +1,4 @@
-.flashcards {
+.flashcardsList {
   background-color: azure;
   color: darkblue;
   margin: auto;
@@ -10,11 +10,11 @@
   text-align: center;
 }
 
-.flashcards h2 {
+.flashcardsList h2 {
   padding-top: 10px;
 }
 
-.flashcards ul {
+.flashcardsList ul {
   padding-top: 10px;
   list-style-type: none;
   margin: auto;
@@ -24,7 +24,7 @@
   justify-content: center;
 }
 
-.flashcards button {
+.flashcardsList button {
   font-family: "Enriqueta";
   background-color: whitesmoke;
   color: darkblue;
@@ -43,7 +43,7 @@
   padding: 20px;
 }
 
-.flashcards button:hover {
+.flashcardsList button:hover {
   background-color: darkblue;
   font-family: "Enriqueta";
   list-style-type: none;
@@ -54,7 +54,7 @@
   padding: 20px;
 }
 
-#list {
+.list {
   background-color: whitesmoke;
   color: darkblue;
   margin: 3px;
