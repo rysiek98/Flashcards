@@ -4,9 +4,20 @@ Flashcards application created in Spring & PSQL (Backend) and with React (Fronte
 
 Project starts: 20.08.2020.
 
+
+## Some screenshots: <h2> tag
+
+## Home page: <h3> tag
 ![Home](/App_img/home.png)
 Format: ![Alt Text](url)
 
+## Add flashcards page: <h3> tag
+![Home](/App_img/add.png)
+Format: ![Alt Text](url)
+
+## Play page: <h3> tag
+![Home](/App_img/play.png)
+Format: ![Alt Text](url)
 
 To use it you need to:
 
