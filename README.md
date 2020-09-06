@@ -4,6 +4,10 @@ Flashcards application created in Spring & PSQL (Backend) and with React (Fronte
 
 Project starts: 20.08.2020.
 
+![Home](/App_img/home.png)
+Format: ![Alt Text](url)
+
+
 To use it you need to:
 
 1) Clone master
