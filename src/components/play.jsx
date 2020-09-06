@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import "../style/play.css";
 import axios from "axios";
+import listFlashcards from "./flashcardsList";
 
 class Play extends Component {
   constructor(props) {
@@ -99,9 +100,9 @@ class Play extends Component {
 
   listFlashcards() {
     return (
-      <div className="listFlashcards">
+      <div className="flashcardsList">
         <h2>List of existing flashcards in database:</h2>
-        <div id="list">
+        <div className="list">
           <ul>
             {this.state.flashcards.map((flashcard, index) => (
               <div key={index}>

@@ -1,4 +1,4 @@
-.flashcards {
+.flashcardsList {
   background-color: azure;
   color: darkblue;
   margin: auto;
@@ -10,11 +10,11 @@
   text-align: center;
 }
 
-.flashcards h2 {
+.flashcardsList h2 {
   padding-top: 10px;
 }
 
-.flashcards ul {
+.flashcardsList ul {
   padding-top: 10px;
   list-style-type: none;
   margin: auto;
@@ -24,7 +24,7 @@
   justify-content: center;
 }
 
-.flashcards button {
+.flashcardsList button {
   font-family: "Enriqueta";
   background-color: whitesmoke;
   color: darkblue;
@@ -43,18 +43,18 @@
   padding: 20px;
 }
 
-.flashcards button:hover {
+.flashcardsList button:hover {
   background-color: darkblue;
   font-family: "Enriqueta";
   list-style-type: none;
   color: whitesmoke;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   border: 0px;
-  padding: 25px;
+  padding: 20px;
 }
 
-#list {
+.list {
   background-color: whitesmoke;
   color: darkblue;
   margin: 3px;
@@ -97,7 +97,7 @@
   font-size: 20px;
   transition-duration: 0.4s;
   text-align: center;
-  margin: 5px;
+  margin: 8px;
   text-decoration: none;
   display: inline-block;
   box-sizing: border-box;
@@ -112,8 +112,8 @@
   background-color: whitesmoke;
   color: darkblue;
   border-radius: 15px;
-  font-size: 25px;
-  padding: 15px;
+  font-size: 23px;
+  padding: 7px;
 }
 
 .buttonStyleClicked {
@@ -133,6 +133,11 @@
   border: 0px;
 }
 
+.optionsButtons {
+  width: 500px;
+  margin: auto;
+}
+
 .optionsButtons button {
   background-color: darkorange;
   color: azure;
@@ -143,10 +148,63 @@
   text-align: center;
   margin-top: 20px;
   margin-right: 10px;
+  margin-left: 10px;
   text-decoration: none;
   display: inline-block;
   box-sizing: border-box;
   padding: 5px;
   outline: none;
+  border: 0px;
+}
+
+.addCard,
+.editCard {
+  color: black;
+  margin: auto;
+  margin-top: 15px;
+  width: 400px;
+  height: 300px;
+  font-family: "Enriqueta";
+  font-size: 25px;
+  padding-bottom: 15px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: azure;
+}
+
+.addCard input,
+.editCard input {
+  outline: none;
+  border: 0px;
+  font-size: 20px;
+  width: 200px;
+  margin-top: 10px;
+  color: red;
+}
+
+.addCard button,
+.editCard button {
+  margin-top: 35px;
+  margin-right: 10px;
+  width: fit-content;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: content-box;
+  border-radius: 30px;
+  background-color: whitesmoke;
+  color: darkblue;
+  border: 0px;
+  transition-duration: 0.6s;
+  outline: none;
+}
+
+.addCard button:hover,
+.editCard button:hover {
+  margin-top: 35px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: darkblue;
+  color: whitesmoke;
   border: 0px;
 }
