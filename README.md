@@ -1,1 +1,3 @@
 # Flashcards
+
+Application frontend
