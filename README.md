@@ -1,9 +1,10 @@
 # Flashcards
 
-Flashcards application created in Spring & PSQL (Backend) and with React (Frontend), it allows user to add flashcards, updated, delete flashcard and the most important learn words with application. 
 
+Flashcards application created in Spring & PSQL (Backend) and with React (Frontend). Flashcard application help learn new words. We could add new flashcards, updated, delete flashcard and the most important learn new words from flashcards.
+
+This is my first React application.
 Project starts: 20.08.2020.
-
 
 ## Some screenshots: <h2> 
 
