@@ -272,9 +272,10 @@ class FlashcardsList extends Component {
     return (
       <div className="showFlashcards">
         <h2>{name}</h2>
-        {cards.map((card) => {
+        {cards.map((card, index) => {
           return (
             <button
+              key={index}
               onClick={this.handleSelected.bind(this, card)}
               className={this.ButtonClicked(card.id)}
             >
