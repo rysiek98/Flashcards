@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Section from "./components/section";
-import axios from "axios";
 import Footer from "./components/footer";
 
 function App() {

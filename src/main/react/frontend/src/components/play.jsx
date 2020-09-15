@@ -1,7 +1,6 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 import "../style/play.css";
 import axios from "axios";
-import listFlashcards from "./flashcardsList";
 
 class Play extends Component {
   constructor(props) {

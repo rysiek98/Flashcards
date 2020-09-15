@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../style/section.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./home";
 import FlashcardsList from "./flashcardsList";
