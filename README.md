@@ -29,5 +29,7 @@ To use it you need to:
 App ready to use!
 
 
+Created by: Michał Ryszka, 2020
+
 
 
